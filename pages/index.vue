@@ -37,7 +37,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex justify-content-center text-light">
+          <div class="col-sm-8 d-flex justify-content-center text-light">
             <div  class="about-text pt-5 text-light" >
               <p id="ab">
                 Hello! My name is Fajar Ismail, and I am a frontend developer experienced in building engaging and
@@ -104,7 +104,7 @@
               </div>
             </div>
 
-            <div class="col-lg-3 p-5">
+            <div class="col-sm-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -118,7 +118,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 p-5">
+            <div class="col-sm-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -132,7 +132,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 p-5">
+            <div class="col-sm-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -146,7 +146,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 p-5">
+            <div class="col-sm-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -160,7 +160,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 p-5">
+            <div class="col-sm-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -174,7 +174,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 p-5">
+            <div class="col-sm-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
