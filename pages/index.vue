@@ -37,8 +37,8 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-8 d-flex justify-content-center text-light">
-            <div  class="about-text pt-5 text-light" >
+          <div class="col-lg-8 d-flex justify-content-center text-light">
+            <div class="about-text pt-5 text-light">
               <p id="ab">
                 Hello! My name is Fajar Ismail, and I am a frontend developer experienced in building engaging and
                 responsive web applications. I possess skills in HTML, CSS, and
@@ -53,7 +53,8 @@
                 in development.
               </p>
               <br />
-              <p id="ab">Thank you for taking the time to get to know me. I look forward to contributing to exciting projects!
+              <p id="ab">Thank you for taking the time to get to know me. I look forward to contributing to exciting
+                projects!
               </p>
             </div>
           </div>
@@ -104,7 +105,7 @@
               </div>
             </div>
 
-            <div class="col-sm-3 p-5">
+            <div class="col-lg-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -118,7 +119,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 p-5">
+            <div class="col-lg-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -132,7 +133,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 p-5">
+            <div class="col-lg-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -146,7 +147,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 p-5">
+            <div class="col-lg-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -160,7 +161,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 p-5">
+            <div class="col-lg-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -174,7 +175,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 p-5">
+            <div class="col-lg-3 p-5">
               <div class="card bg-transparent border-primary">
                 <div class="card-bod">
                   <div class="row">
@@ -192,32 +193,38 @@
         </div>
       </div>
       <div class="project my-5 py-5" id="project">
-        <h1 class="ms-5 ps-4 my-5 text-light">Project</h1>
-        <div class="row my-5 py-5">
-          <div class="col-lg-4 p-5 d-flex justify-content-center">
-            <div class="card " style="height: 100%;" id="pr">
-              <div class="card-content p-2">
-                <img src="../assets/img/ang.jpg" class="card-img-top" alt="..." />
-              </div>
+      <h1 class="ms-5 ps-4 my-5 text-light">Project</h1>
+      <div class="row my-5 py-5">
+        <div class="col-lg-4 p-5 d-flex justify-content-center" @click="showDetail('ang')">
+          <div class="card" style="height: 100%;">
+            <div class="card-content p-2">
+              <img src="../assets/img/ang.jpg" class="card-img-top" alt="..." />
             </div>
           </div>
-          <div class="col-lg-4 p-5  d-flex justify-content-center">
-            <div class="card " style="height: 100%;" id="pr">
-              <div class="card-content p-2">
-                <img src="../assets/img/cashier.jpg" class="card-img-top" alt="..." />
-              </div>
+        </div>
+        <div class="col-lg-4 p-5 d-flex justify-content-center" @click="showDetail('cashier')">
+          <div class="card" style="height: 100%;">
+            <div class="card-content p-2">
+              <img src="../assets/img/cashier.jpg" class="card-img-top" alt="..." />
             </div>
           </div>
-          <div class="col-lg-4 p-5  d-flex justify-content-center">
-            <div class="card" style="height: 100%;" id="pr">
-              <div class="card-content p-2">
-                <img src="../assets/img/per.png" class="card-img-top" alt="..." />
-              </div>
+        </div>
+        <div class="col-lg-4 p-5 d-flex justify-content-center" @click="showDetail('per')">
+          <div class="card" style="height: 100%;">
+            <div class="card-content p-2">
+              <img src="../assets/img/per.png" class="card-img-top" alt="..." />
             </div>
           </div>
         </div>
       </div>
-      <div class="contact pt-5 mt-5" id="contact">
+    </div>
+    <div v-if="isModalVisible" class="modal" @click.self="closeModal">
+      <div class="modal-content">
+        <span class="close" @click="closeModal">&times;</span>
+        <div v-html="modalDetail"></div>
+      </div>
+    </div>      
+    <div class="contact pt-5 mt-5" id="contact">
         <h1 class="text-light text-center pt-5">Contact Me</h1>
         <div class="row justify-content-center align-items-center">
           <div class="col-12 col-md-8 px-3">
@@ -289,6 +296,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -297,6 +305,8 @@ export default {
     return {
       isSticky: false,
       menuOpen: false,
+      isModalVisible: false,
+      modalDetail: '',
     };
   },
   methods: {
@@ -315,6 +325,56 @@ export default {
       if (this.menuOpen) {
         this.isSticky = false;
       }
+    },
+    showDetail(card) {
+      if (card === 'ang') {
+        this.modalDetail = `
+          <h2>Detail for site Angkringan</h2>
+          <li><strong>Web Servers:</strong> Nginx 1.19.2</li>
+        <li><strong>Caching:</strong> Varnish</li>
+        <li><strong>Page Builder:</strong> Nicepage 6.16.5</li>
+        <li><strong>JavaScript Libraries:</strong> jQuery 3.5.1</li>
+        <li><strong>PaaS:</strong> Amazon Web Services</li>
+        <li><strong>Reverse Proxies:</strong> Nginx 1.19.2</li>
+        `;
+      } else if (card === 'cashier') {
+        this.modalDetail = `
+          <h2>Detail for Cashier Angkringan</h2>
+      <ul>
+        <li><strong>JavaScript Frameworks:</strong> Vue.js, Nuxt.js</li>
+        <li><strong>Web Frameworks:</strong> Nuxt.js</li>
+        <li><strong>Programming Languages:</strong> Node.js</li>
+        <li><strong>CDN:</strong> jsDelivr</li>
+        <li><strong>Databases:</strong> PostgreSQL</li>
+        <li><strong>Development:</strong> Supabase</li>
+        <li><strong>Static Site Generators:</strong> Nuxt.js</li>
+        <li><strong>PaaS:</strong> Vercel</li>
+        <li><strong>UI Frameworks:</strong> Bootstrap 5.2.3</li>
+      </ul>
+        `;
+      } else if (card === 'per') {
+        this.modalDetail = `
+           <h2>Detail for E-LIBRARY</h2>
+          <ul>
+            <li><strong>JavaScript Frameworks:</strong> Vue.js, Nuxt.js</li>
+            <li><strong>Security:</strong> HSTS</li>
+            <li><strong>Web Frameworks:</strong> Nuxt.js</li>
+            <li><strong>Programming Languages:</strong> Node.js</li>
+            <li><strong>Databases:</strong> PostgreSQL</li>
+            <li><strong>Development:</strong> Supabase</li>
+            <li><strong>Static Site Generators:</strong> Nuxt.js</li>
+            <li><strong>PaaS:</strong> Vercel</li>
+            <li><strong>UI Frameworks:</strong> Bootstrap</li>
+          </ul>
+        `;
+      }
+
+      this.isModalVisible = true;
+      document.body.classList.add('blur');
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      document.body.classList.remove('blur');
     },
   },
   mounted() {
@@ -386,9 +446,10 @@ p {
 
 
 @media (max-width: 768px) {
-  #ab{
+  #ab {
     font-size: 12px;
   }
+
   h1 {
     font-size: 24px;
   }
@@ -423,9 +484,10 @@ p {
 }
 
 @media (max-width: 576px) {
-  #ab{
+  #ab {
     font-size: 10px;
   }
+
   .contact h1 {
     font-size: 24px;
   }
@@ -721,5 +783,39 @@ header.sticky nav a {
   letter-spacing: 0px;
   transform: scale(0.3);
   transition-delay: 0.2s;
+}
+.modal {
+  display: flex; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background: transparent;
+}
+.modal-content {
+  background-color: black;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #ffffff;
+  width: 80%;
+  height: max-content; 
+}
+.close {
+  color: #fffafa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+}
+.blur {
+  filter: blur(5px);
 }
 </style>
