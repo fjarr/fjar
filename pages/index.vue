@@ -196,21 +196,21 @@
       <h1 class="ms-5 ps-4 my-5 text-light">Project</h1>
       <div class="row my-5 py-5">
         <div class="col-lg-4 p-5 d-flex justify-content-center" @click="showDetail('ang')">
-          <div class="card" style="height: 100%;">
+          <div class="card bg-dark" style="height: 100%;">
             <div class="card-content p-2">
               <img src="../assets/img/ang.jpg" class="card-img-top" alt="..." />
             </div>
           </div>
         </div>
         <div class="col-lg-4 p-5 d-flex justify-content-center" @click="showDetail('cashier')">
-          <div class="card" style="height: 100%;">
+          <div class="card bg-dark" style="height: 100%;">
             <div class="card-content p-2">
               <img src="../assets/img/cashier.jpg" class="card-img-top" alt="..." />
             </div>
           </div>
         </div>
         <div class="col-lg-4 p-5 d-flex justify-content-center" @click="showDetail('per')">
-          <div class="card" style="height: 100%;">
+          <div class="card bg-dark" style="height: 100%;">
             <div class="card-content p-2">
               <img src="../assets/img/per.png" class="card-img-top" alt="..." />
             </div>
